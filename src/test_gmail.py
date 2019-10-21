@@ -13,6 +13,7 @@ for_myself_button = driver.find_element_by_xpath("//*[@id='initialView']/div[2]/
 for_myself_button.click()
 
 validator_error = "Имя пользователя может включать латинские буквы (a-z), цифры (0-9) и точку (.)."
+
 first_name_field = driver.find_element_by_id("firstName")
 last_name_field = driver.find_element_by_id("lastName")
 password_field = driver.find_element_by_name("Passwd")
@@ -20,10 +21,12 @@ confirm_password_field = driver.find_element_by_name("ConfirmPasswd")
 next_button = driver.find_element_by_id("accountDetailsNext")
 user_name_field = driver.find_element_by_id("username")
 
-first_name_field.send_keys("Pavel")
-last_name_field.send_keys("Nikolin")
-password_field.send_keys("Pasword1")
-confirm_password_field.send_keys("Pasword1")
+user_dictionary = {'fn': 'Pavel', 'ln': 'Nikolin', 'password': 'Pasword1'}
+
+first_name_field.send_keys(user_dictionary['fn'])
+last_name_field.send_keys(user_dictionary['ln'])
+password_field.send_keys(user_dictionary['password'])
+confirm_password_field.send_keys(user_dictionary['password'])
 
 email_list = ['@p.p', 'p@-p.p', 'p@p', 'p@p@p.p']
 
