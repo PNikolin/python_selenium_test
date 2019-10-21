@@ -30,30 +30,16 @@ confirm_password_field.send_keys(user_dictionary['password'])
 
 email_list = ['@p.p', 'p@-p.p', 'p@p', 'p@p@p.p']
 
-user_name_field.clear()
-user_name_field.send_keys(email_list[0])
-next_button.click()
-time.sleep(1)
-assert validator_error in driver.page_source
+def validator_username_field(email):
+    user_name_field.clear()
+    user_name_field.send_keys(email)
+    next_button.click()
+    time.sleep(1)
+    assert validator_error in driver.page_source
 
-
-user_name_field.clear()
-user_name_field.send_keys(email_list[1])
-next_button.click()
-time.sleep(1)
-assert validator_error in driver.page_source
-
-
-user_name_field.clear()
-user_name_field.send_keys(email_list[2])
-next_button.click()
-time.sleep(1)
-assert validator_error in driver.page_source
-
-user_name_field.clear()
-user_name_field.send_keys(email_list[3])
-next_button.click()
-time.sleep(1)
-assert validator_error in driver.page_source
+validator_username_field(email_list[0])
+validator_username_field(email_list[1])
+validator_username_field(email_list[2])
+validator_username_field(email_list[3])
 
 driver.quit()
