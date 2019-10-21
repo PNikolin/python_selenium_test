@@ -30,6 +30,7 @@ confirm_password_field.send_keys(user_dictionary['password'])
 
 email_list = ['@p.p', 'p@-p.p', 'p@p', 'p@p@p.p']
 
+
 def validator_username_field(email):
     user_name_field.clear()
     user_name_field.send_keys(email)
@@ -37,7 +38,7 @@ def validator_username_field(email):
     time.sleep(1)
     assert validator_error in driver.page_source
 
+
 for email in email_list:
     validator_username_field(email)
-
 driver.quit()
