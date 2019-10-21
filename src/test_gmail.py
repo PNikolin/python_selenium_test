@@ -37,9 +37,7 @@ def validator_username_field(email):
     time.sleep(1)
     assert validator_error in driver.page_source
 
-validator_username_field(email_list[0])
-validator_username_field(email_list[1])
-validator_username_field(email_list[2])
-validator_username_field(email_list[3])
+for email in email_list:
+    validator_username_field(email)
 
 driver.quit()
