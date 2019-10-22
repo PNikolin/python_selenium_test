@@ -11,9 +11,6 @@ class BasePage():
     def _verify_page(self):
         pass
 
-    def __init__(self, driver):
-        self.driver = driver
-
     def get_element(self, locator):
         extended_condition = ec.presence_of_element_located(locator)
         return WebDriverWait(self.driver, 10).until(extended_condition, message="Unable to locate element")
@@ -25,8 +22,10 @@ class BasePage():
         self.get_element(locator).clear()
         self.get_element(locator).send_keys(text)
 
-    def get_text(self, locator):
-        return self.get_element(locator).text
+    def get_text(self, locator, text):
+        extended_condition = ec.text_to_be_present_in_element(locator, text)
+        if WebDriverWait(self.driver, 10).until(extended_condition, message="Unable to locate element"):
+            return self.get_element(locator).text
 
     def on_this_page(self, *args):
         for locator in args:
