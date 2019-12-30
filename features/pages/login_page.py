@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from instagram.pages.base_page import BasePage
+from features.pages.base_page import BasePage
 
 
 class LoginPage(BasePage):

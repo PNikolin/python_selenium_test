@@ -1,10 +1,10 @@
 from selenium.webdriver.common.by import By
-from instagram.pages.base_page import BasePage
+from features.pages.base_page import BasePage
 
 
 class MainPage(BasePage):
-    BUTTON_NOT_NOW = (By.XPATH, "//button[text() = 'Not Now']")
-    FIELD_SEARCH = (By.XPATH, "//input[@placeholder = 'Search']")
+    BUTTON_NOT_NOW = (By.XPATH, "//button[text() = 'Не сейчас']")
+    FIELD_SEARCH = (By.XPATH, "//input[@placeholder = 'Поиск']")
 
     def click_not_now_button(self):
         self.click_on(self.BUTTON_NOT_NOW)
